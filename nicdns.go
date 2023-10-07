@@ -539,6 +539,15 @@ func (m *DNSManager) AddZoneRecord(rec *APIRequestZoneRecords) error {
 	return nil
 }
 
+// DelTempFile removes query temp file
+func (m *DNSManager) DelTempFile() error {	
+	fn := m.getQueryFileName()
+	if fileExists(fn) {
+		return os.Remove(fn) 
+	}
+	return nil
+}
+
 //**********************************************************************************************************
 //
 // LoadFromFile loads data from json init file

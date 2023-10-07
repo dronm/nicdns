@@ -214,3 +214,11 @@ func TestCommit(t *testing.T) {
 	}	
 }
 
+func TestDelTempFile(t *testing.T) {	
+	man := CreateFromFile()		
+	err := man.DelTempFile()
+	if err != nil {
+		panic(fmt.Sprintf("DelTempFile() failed: %v",err))
+	}	
+}
+
